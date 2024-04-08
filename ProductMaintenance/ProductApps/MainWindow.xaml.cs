@@ -18,6 +18,7 @@ namespace ProductApps
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
         Product cProduct;
@@ -29,7 +30,8 @@ namespace ProductApps
 
         private void calculateButton_Click(object sender, RoutedEventArgs e)
         {
-            double priceTextBox1, quantityTextBox1, totalPrice1, totalPrice2, totalPrice3;
+            const double GST = 1.1;
+            double priceTextBox1, quantityTextBox1, totalPrice1, totalPrice2, totalPrice3, totalPrice4;
             try
             {
                 cProduct = new Product(Convert.ToDecimal(priceTextBox.Text), Convert.ToInt16(quantityTextBox.Text));
@@ -54,6 +56,10 @@ namespace ProductApps
             totalPrice3 = totalPrice2 + 5;
             totalWrappingTextBox.Text = totalPrice3.ToString("C");
 
+            totalPrice4 = totalPrice3 * GST;
+
+            totalGSTTextBox.Text = totalPrice4.ToString("C");
+
         }
 
         private void clearButton_Click(object sender, RoutedEventArgs e)
@@ -62,6 +68,9 @@ namespace ProductApps
             priceTextBox.Text = "";
             quantityTextBox.Text = "";
             totalPayment.Text = "";
+            totalChargeTextBox.Text = "";
+            totalWrappingTextBox.Text = "";
+            totalGSTTextBox.Text = "";
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
