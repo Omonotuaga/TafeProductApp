@@ -29,7 +29,7 @@ namespace ProductApps
 
         private void calculateButton_Click(object sender, RoutedEventArgs e)
         {
-            double priceTextBox1, quantityTextBox1, totalPrice1, totalPrice2;
+            double priceTextBox1, quantityTextBox1, totalPrice1, totalPrice2, totalPrice3;
             try
             {
                 cProduct = new Product(Convert.ToDecimal(priceTextBox.Text), Convert.ToInt16(quantityTextBox.Text));
@@ -50,6 +50,9 @@ namespace ProductApps
             //“Added the delivery charge $25”.
             totalPrice2 = totalPrice1 + 25;
             totalChargeTextBox.Text = totalPrice2.ToString("C");
+
+            totalPrice3 = totalPrice2 + 5;
+            totalWrappingTextBox.Text = totalPrice3.ToString("C");
 
         }
 
