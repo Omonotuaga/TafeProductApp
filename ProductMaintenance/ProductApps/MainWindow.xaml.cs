@@ -46,6 +46,8 @@ namespace ProductApps
 
             totalPrice1 = priceTextBox1 * quantityTextBox1;
             totalPayment.Text = totalPrice1.ToString("C");
+
+            //“Added the delivery charge $25”.
             totalPrice2 = totalPrice1 + 25;
             totalChargeTextBox.Text = totalPrice2.ToString("C");
 
